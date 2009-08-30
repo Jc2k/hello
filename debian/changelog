@@ -1,0 +1,263 @@
+hello (2.4-3) unstable; urgency=low
+
+  * Modified doc/Makefile.in to avoid /usr/share/info/dir.gz.
+
+ -- Santiago Vila <sanvila@debian.org>  Sun, 30 Aug 2009 13:05:52 +0200
+
+hello (2.4-2) unstable; urgency=low
+
+  * Removed prerm and postinst as they are no longer needed.
+  * Added dependency on "dpkg (>= 1.15.4) | install-info".
+  * Standards-Version: 3.8.3.
+
+ -- Santiago Vila <sanvila@debian.org>  Wed, 26 Aug 2009 17:01:36 +0200
+
+hello (2.4-1) unstable; urgency=low
+
+  * New upstream release. License is now GPLv3 or later.
+  * Manual is included again, as it's now GFDL without invariant sections.
+  * Clarified manual: If more than one of the greeting options is specified
+    (`-g', `-n', `-t', and their long-named equivalents), whichever comes
+    last takes precedence. Closes: #457941.
+  * Don't pass -isp to dpkg-gencontrol, as it's deprecated. Closes: #508833.
+  * Changed source URL in copyright file to use http, not ftp.
+  * Standards-Version: 3.8.2 (no changes for this).
+
+ -- Santiago Vila <sanvila@debian.org>  Mon, 03 Aug 2009 23:34:18 +0200
+
+hello (2.2-3) unstable; urgency=low
+
+  * Added debian/watch file. Closes: #489213.
+  * Removed unneeded section .comment from binary. Closes: #428722.
+  * Run "make distclean" only if Makefile exists, but do not ignore errors.
+
+ -- Santiago Vila <sanvila@debian.org>  Fri, 28 Nov 2008 17:08:46 +0100
+
+hello (2.2-2) unstable; urgency=low
+
+  * Removed all traces of checkroot. It's not really debian/rules job,
+    and the binary target will fail anyway if not invoked as root,
+    as there is a chown call.
+
+ -- Santiago Vila <sanvila@debian.org>  Wed, 11 Apr 2007 08:05:12 +0200
+
+hello (2.2-1) unstable; urgency=low
+
+  * New upstream release.
+  * Repackaged source without GFDL manual.
+  * Option -m does no longer exist (Closes: #109895).
+  * Removed prerm and postinst, as info files are missing now.
+
+ -- Santiago Vila <sanvila@debian.org>  Sat,  9 Dec 2006 17:00:14 +0100
+
+hello (2.1.1-5) unstable; urgency=low
+
+  * Removed checkdir stuff from debian/rules, as it is not very useful.
+  * Standards-Version: 3.7.2 (no changes for this).
+  * Updated config.guess and config.sub.
+
+ -- Santiago Vila <sanvila@debian.org>  Tue, 18 Jul 2006 19:55:02 +0200
+
+hello (2.1.1-4) unstable; urgency=low
+
+  * Updated config.guess and config.sub for GNU/K*BSD.
+
+ -- Santiago Vila <sanvila@debian.org>  Mon,  5 Jan 2004 16:42:30 +0100
+
+hello (2.1.1-3) unstable; urgency=low
+
+  * Modified Makefile.in to make sure that install-info is never called
+    during the build. This is a workaroud for an automake bug which makes
+    packages to contain /usr/share/info/dir.gz.
+
+ -- Santiago Vila <sanvila@debian.org>  Wed,  8 Oct 2003 12:43:26 +0200
+
+hello (2.1.1-2) unstable; urgency=low
+
+  * Standards-Version: 3.6.1 (no changes required).
+  * Use `:' with chown for POSIX compliance, not `.'.
+  * Use chmod u+w,go=rX to sanitize permissions.
+
+ -- Santiago Vila <sanvila@debian.org>  Sun,  7 Sep 2003 15:32:18 +0200
+
+hello (2.1.1-1) unstable; urgency=low
+
+  * New upstream release. GNU hello now says `Hello, world!' in a lot of
+    different languages, using gettext. See the NEWS file for details.
+  * Fixed spelling error in extended description (Closes: #124733).
+  * The upstream source now contains install-sh (Closes: #135735).
+  * The info file is now installed under the "Development" section.
+  * It already has a description, so --description isn't used anymore.
+  * Removed deprecated emacs stuff from the Debian changelog.
+  * Removed debian/hello.1, since there is now an upstream manpage.
+  * Standards-Version: 3.5.7:
+  - Added support for DEB_BUILD_OPTIONS (noopt and nostrip).
+  - Modified prerm and postinst so that they do nothing about doc symlinks.
+  * Updated copyright file. Removed references to Linux.
+  * Some changes to make debian/rules more readable.
+  * New maintainer (thanks, Adam).
+
+ -- Santiago Vila <sanvila@debian.org>  Sat, 12 Oct 2002 21:07:42 +0200
+
+hello (1.3-18) unstable; urgency=low
+
+  * Fix bashism in debian/rules.  Closes: #81827.
+
+ -- Adam Heath <doogie@debian.org>  Fri, 12 Jan 2001 00:42:56 -0600
+
+hello (1.3-17) unstable; urgency=low
+
+  * Fixed symlink creation for /usr/doc.  Closes: #62899.
+  * Don't use whoami to test for root, as that isn't il8n.
+  * Include the section and priority fields in debian/tmp/DEBIAN/control.
+  * Lintian 1.11.2 clean.
+
+ -- Adam Heath <doogie@debian.org>  Sun, 23 Apr 2000 19:52:39 -0500
+
+hello (1.3-16) unstable; urgency=low
+
+  * Added /usr/doc -> ../share/doc symlink handling.
+  * This package has no build dependencies.
+
+ -- Adam Heath <doogie@debian.org>  Sat,  4 Dec 1999 04:12:28 -0600
+
+hello (1.3-15) unstable; urgency=low
+
+  * New maintainer, as the current maintainer has been awol.
+  * Ported to FHS.
+  * Bugs fixed in previous releases: Closes: #14602, #20998, #14603
+  * Acknowledge -14 nmu.  Closes: #14876
+  * Remove comments about targets 'source' and 'diff', as they are
+    only of interest for historical reasons.
+  * Lintian 1.8.2 clean.
+
+ -- Adam Heath <doogie@debian.org>  Sat, 18 Sep 1999 10:25:13 -0500
+
+hello (1.3-14.3) unstable; urgency=low
+
+  * YANMU.
+  * This release has no lintian errors, so that the slink release
+    won't be delayed.  :)
+  * Added man page(written by rcw@irc.debian.org#debian).
+    (Fixes Bug#4341)
+  * Removed spurious 'source/diff' message from debian/rules, as it
+    was confusing to new developers, and is a historical anomaly.
+    (Fixes Bug#14602)
+  * Removed bashims from debian/rules.  (Fixes Bug#14603)
+  * Acknowledge the nmu in 14876.  (Fixes Bug#14876)
+  * Removes  || $(MAKE) -f Makefile.in distclean from debian/rules.
+    (Fixes Bug#20998)
+
+ -- Adam Heath <doogie@debian.org>  Sun,  4 Oct 1998 01:30:01 -0500
+
+hello (1.3-14.2) unstable; urgency=low
+
+  * Yet another non-maintainer release
+  * Removed source and diff targets (#14601). I'm not removing the comment
+    (which would fix #14602) as it's harmless and slightly interesting IMO.
+  * Fixed calling of make install; I ignored this bug last time as I didn't
+    understand it. Having realised what it meant, I agree that it needed
+    changing (#4967)
+
+ -- Mark Baker <mbaker@iee.org>  Sun, 16 Nov 1997 18:11:03 +0000
+
+hello (1.3-14.1) unstable; urgency=low
+
+  * Non-maintainer release
+  * Remove section and priority lines for binary, i.e. undoing the
+    "fix" for the non-bug #4816
+  * Yes, I do know that the previous release should have been numbered
+    1.3-13.1
+
+ -- Mark Baker <mbaker@iee.org>  Sun, 16 Nov 1997 17:16:10 +0000
+
+hello (1.3-14) unstable; urgency=low
+
+  * Non-maintainer release
+  * Add section and priority lines for binary (#4816)
+  * Change comment in debian/rules (#4968)
+  * Remove debian/substvars on clean (#4371)
+  * Fix hang when looking for mailbox (#4375)
+  * Search FSSTND and FHS locations for mail
+  * Compile for libc6
+
+ -- Mark Baker <mbaker@iee.org>  Fri, 14 Nov 1997 22:40:39 +0000
+
+hello (1.3-13) unstable; urgency=low
+
+  * Updated to Standards-Version 2.1.1.0 (no changes required).
+  * Changed maintainer email address.
+
+ -- Ian Jackson <ian@chiark.greenend.org.uk>  Thu, 12 Sep 1996 01:30:34 +0100
+
+hello (1.3-12) unstable; urgency=low
+
+  * Added Debian and upstream changelogs to binary package.
+  * Updated to Standards-Version 2.1.0.0.
+
+ -- Ian Jackson <ian@chiark.chu.cam.ac.uk>  Sun, 1 Sep 1996 16:02:23 +0100
+
+hello (1.3-11) unstable; urgency=low
+
+  * Maintainer scripts now `set -e' (even though only 1 command in each).
+  * debian/rules has separate binary, binary-arch, binary-indep targets.
+
+ -- Ian Jackson <ian@chiark.chu.cam.ac.uk>  Thu, 22 Aug 1996 15:37:25 +0100
+
+hello (1.3-10) experimental; urgency=low
+
+  * Use new shared library dependencies and dpkg-gencontrol scheme.
+  * `source' and `diff' removed from .PHONY and now print message.
+
+ -- Ian Jackson <ian@chiark.chu.cam.ac.uk>  Tue, 20 Aug 1996 15:42:27 +0100
+
+hello (1.3-9) experimental; urgency=LOW
+
+  * changelog specifies `debian-changelog-mode', not `dpkg-...'.
+  * Comment in debian/rules re missing (obsolete) `source', `diff' &c.
+
+ -- Ian Jackson <ian@chiark.chu.cam.ac.uk>  Sat, 10 Aug 1996 22:23:39 +0100
+
+hello (1.3-8) experimental; urgency=LOW
+
+  * debian/changelog has local variables section to set Emacs mode.
+  * debian/rules mkdir replaced with install -d for consistency.
+  * debian/rules INSTALL setting to use -s changed to INSTALL_PROGRAM.
+
+ -- Ian Jackson <ian@chiark.chu.cam.ac.uk>  Fri, 9 Aug 1996 23:59:37 +0100
+
+hello (1.3-7) experimental; urgency=LOW
+
+  * Changed to new source packing scheme.
+
+ -- Ian Jackson <ian@chiark.chu.cam.ac.uk>  Tue, 6 Aug 1996 02:22:38 +0100
+
+hello (1.3-6); priority=LOW
+
+  * Changed to ELF and added Pre-Depends.
+  * Added Architecture field to control file.
+
+ -- Ian Jackson <iwj10@cus.cam.ac.uk>  Thu, 14 Mar 1996 02:04:36 +0000
+
+hello (1.3-4); priority=LOW
+
+  * Added extended description.
+
+ -- Ian Jackson <iwj10@cus.cam.ac.uk>  Fri, 28 Jul 1995 21:33:04 +0100
+
+Hello 1.3 Debian 3 - iwj
+
+* Corrected some mistakes in debian.README.
+* Added Package_Revision field to `control' file.
+* Added --quiet to install-info invocations.
+* Generalised and commented debian.rules a bit more.
+* Put debian.rules into the public domain.
+* Removed debian.rules install target.
+* Added this Changelog.
+* Added Info manual copyright to debian.README.
+
+Hello 1.3 Debian 2 - iwj
+* New prerm script which calls install-info --remove.
+
+Hello 1.3 Debian 1 - iwj
+Initial release.
